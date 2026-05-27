@@ -1,0 +1,226 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #1a56db;
+  --blue-light: #eff6ff;
+  --green: #15803d;
+  --red: #dc2626;
+  --border: #e2e8f0;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --faint: #94a3b8;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.07);
+}
+
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app { min-height: 100vh; }
+
+/* Header */
+.hdr {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.logo { font-size: 21px; font-weight: 800; letter-spacing: -0.5px; }
+.logo-x { color: var(--blue); }
+.logo-star { color: var(--blue); font-size: 9px; vertical-align: super; }
+
+/* Main */
+.main { max-width: 1120px; margin: 0 auto; padding: 26px 22px 56px; }
+
+.title-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.title-row h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+.how-btn {
+  background: none; border: none; color: var(--blue);
+  font-size: 13px; cursor: pointer; font-weight: 500;
+  text-decoration: underline; font-family: inherit;
+}
+
+/* Disclaimer */
+.disc-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.disc-btn {
+  width: 100%; display: flex; align-items: center; gap: 8px;
+  padding: 11px 16px; background: none; border: none;
+  cursor: pointer; font-family: inherit; font-size: 13px;
+  font-weight: 500; color: var(--text); text-align: left;
+}
+.disc-icon { color: #f59e0b; font-size: 14px; }
+.disc-chevron {
+  margin-left: auto; font-size: 15px; color: var(--muted);
+  transition: transform .2s; display: inline-block;
+}
+.disc-chevron.open { transform: rotate(180deg); }
+.disc-body { border-top: 1px solid var(--border); padding: 12px 16px; background: #fafafa; }
+.disc-body ul {
+  list-style: disc; padding-left: 16px; color: var(--muted);
+  font-size: 12.5px; display: flex; flex-direction: column; gap: 5px;
+}
+
+/* Cards */
+.cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+
+.gains-card {
+  border-radius: var(--radius); padding: 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  box-shadow: var(--shadow-md); transition: transform .18s;
+}
+.gains-card:hover { transform: translateY(-1px); }
+.after-card { background: var(--blue); border-color: transparent; color: #fff; }
+
+.card-lbl {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .6px; margin-bottom: 13px; opacity: .65;
+}
+
+.gains-grid {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  overflow: hidden; margin-bottom: 12px;
+}
+.after-card .gains-grid { border-color: rgba(255,255,255,.2); }
+
+.g-row {
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+  padding: 9px 12px; font-size: 13px;
+  border-bottom: 1px solid var(--border); align-items: center;
+}
+.after-card .g-row { border-bottom-color: rgba(255,255,255,.15); }
+.g-row:last-child { border-bottom: none; }
+
+.g-row.hdr-row {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .4px; color: var(--muted); background: #f8fafc; padding: 7px 12px;
+}
+.after-card .hdr-row { background: rgba(255,255,255,.1); color: rgba(255,255,255,.65); }
+
+.g-row .lbl { color: var(--muted); }
+.after-card .g-row .lbl { color: rgba(255,255,255,.7); }
+.g-row.net-row { font-weight: 600; }
+
+.pos { color: var(--green); font-weight: 600; }
+.neg { color: var(--red); font-weight: 600; }
+.after-card .pos, .after-card .neg { color: #fff; }
+
+.realised-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px 0; font-weight: 600; font-size: 13.5px;
+}
+.realised-val { font-size: 18px; font-weight: 800; }
+
+.savings-tag {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 11px; padding: 8px 12px;
+  background: rgba(255,255,255,.15); border-radius: var(--radius-sm);
+  font-size: 12.5px; color: #fff; font-weight: 500;
+}
+.star { color: #fde68a; font-size: 11px; }
+
+/* Skeleton */
+.skel {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius);
+}
+.card-skel { height: 210px; }
+.row-skel { height: 52px; margin-bottom: 4px; border-radius: 7px; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* Holdings */
+.holdings-wrap {
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--border); box-shadow: var(--shadow-md); overflow: hidden;
+}
+.section-hdr { font-size: 15px; font-weight: 700; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+
+.tbl-scroll { overflow-x: auto; }
+.holdings-tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+.holdings-tbl thead th {
+  background: #f8fafc; padding: 11px 13px; text-align: left;
+  font-weight: 600; font-size: 11.5px; color: var(--muted);
+  border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.holdings-tbl thead th:first-child { width: 42px; padding-left: 18px; }
+.sub-h { font-weight: 400; font-size: 10.5px; color: var(--faint); display: block; }
+
+.holdings-tbl tbody tr { border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background .1s; }
+.holdings-tbl tbody tr:hover { background: #f8fafc; }
+.holdings-tbl tbody tr.sel { background: var(--blue-light); }
+.holdings-tbl tbody tr.sel:hover { background: #dbeafe; }
+.holdings-tbl tbody td { padding: 12px 13px; vertical-align: middle; }
+.holdings-tbl tbody td:first-child { padding-left: 18px; }
+
+input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; accent-color: var(--blue); }
+
+.asset-cell { display: flex; align-items: center; gap: 9px; }
+.coin-img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; }
+.coin-fb {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--blue); color: #fff; font-weight: 700; font-size: 12px;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+.coin-nm { font-weight: 600; color: var(--text); font-size: 13px; display: block; }
+.coin-tk { font-size: 10.5px; color: var(--faint); font-family: 'DM Mono', monospace; }
+
+.hld-cell { display: flex; flex-direction: column; gap: 1px; }
+.hld-amt { font-weight: 500; font-size: 12px; color: var(--text); font-family: 'DM Mono', monospace; }
+.avg-p { font-size: 11px; color: var(--faint); }
+.cur-val { font-weight: 600; font-family: 'DM Mono', monospace; }
+
+.gain-cell { display: flex; flex-direction: column; gap: 1px; }
+.gain-bal { font-size: 10.5px; color: var(--faint); font-family: 'DM Mono', monospace; }
+.amt-sell { font-weight: 600; color: var(--blue); font-family: 'DM Mono', monospace; font-size: 12px; }
+.amt-empty { color: var(--faint); }
+
+.view-all-btn {
+  display: block; width: 100%; padding: 13px; background: none; border: none;
+  border-top: 1px solid var(--border); color: var(--blue); font-family: inherit;
+  font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; transition: background .12s;
+}
+.view-all-btn:hover { background: #f0f7ff; }
+
+.error-msg {
+  background: #fee2e2; color: #dc2626; padding: 12px 16px;
+  border-radius: 8px; margin-bottom: 16px; font-size: 13px; font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .cards-row { grid-template-columns: 1fr; }
+  .main { padding: 16px 14px 36px; }
+  .hdr { padding: 0 16px; }
+  .title-row h1 { font-size: 18px; }
+  .holdings-tbl thead th:nth-child(3),
+  .holdings-tbl tbody td:nth-child(3) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .realised-val { font-size: 15px; }
+  .gains-card { padding: 14px; }
+}
