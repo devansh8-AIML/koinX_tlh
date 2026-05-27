@@ -4,7 +4,9 @@ A responsive React application for the KoinX Frontend Intern Assignment.
 
 ## Screenshots
 
-> Add screenshots after running the app locally.
+<img width="1470" height="815" alt="Screenshot 2026-05-27 at 1 49 25 PM" src="https://github.com/user-attachments/assets/64b58b01-8a6c-4dc3-bad7-e3d07ff77eff" />
+<img width="1470" height="609" alt="Screenshot 2026-05-27 at 1 49 32 PM" src="https://github.com/user-attachments/assets/6f328c6c-64f7-4bc5-bb20-0b1553fe74e4" />
+
 
 ## Setup Instructions
 
